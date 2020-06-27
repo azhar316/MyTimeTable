@@ -32,4 +32,6 @@ dependencies {
 
     // RecyclerView dependency
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    // ViewGroup2 dependency
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 }
