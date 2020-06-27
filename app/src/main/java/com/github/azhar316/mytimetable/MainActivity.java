@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
         implements TaskAdapter.ItemClickHandler {
@@ -34,12 +33,12 @@ public class MainActivity extends AppCompatActivity
         mTaskAdapter = new TaskAdapter(this);
         mRecyclerView.setAdapter(mTaskAdapter);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab_add);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intentToStartEditActivity = new Intent(MainActivity.this, EditActivity.class);
+                startActivity(intentToStartEditActivity);
             }
         });
 
@@ -48,6 +47,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(String data) {
-        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
+        Intent intentToStartEditActivity = new Intent(this, EditActivity.class);
+        intentToStartEditActivity.putExtra(Intent.EXTRA_TEXT, data);
+        startActivity(intentToStartEditActivity);
     }
 }

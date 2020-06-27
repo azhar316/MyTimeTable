@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">My TimeTable</string>
 
-    <string name="floating_action">Add Task</string>
+    <string name="floating_action_add">Add Task</string>
+
+    <string name="floating_action_save">Save Task</string>
 </resources>
