@@ -8,11 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_task_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout_week_days"
         android:layout_width="match_parent"
