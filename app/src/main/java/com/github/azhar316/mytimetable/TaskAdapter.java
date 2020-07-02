@@ -7,6 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.azhar316.mytimetable.database.TaskEntry;
+
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,14 +20,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     private final ItemClickHandler mClickHandler;
 
-    private String[] mTaskData;
+    private List<TaskEntry> mTaskEntries;
 
     public TaskAdapter(ItemClickHandler clickHandler) {
         mClickHandler = clickHandler;
     }
 
     interface ItemClickHandler {
-        void onClick(String data);
+        void onClick(int itemPosition);
     }
 
     class TaskViewHolder extends RecyclerView.ViewHolder
@@ -40,8 +44,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         @Override
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
-            String taskData = mTaskData[adapterPosition];
-            mClickHandler.onClick(taskData);
+            mClickHandler.onClick(adapterPosition);
         }
     }
 
@@ -57,20 +60,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        Log.d(TAG, "onBindView: " + position + " " + mTaskData[position]);
-        holder.mTaskDataTextView.setText(mTaskData[position]);
+        TaskEntry task = mTaskEntries.get(position);
+        String taskLabel = task.getTaskLabel();
+        holder.mTaskDataTextView.setText(taskLabel);
     }
 
     @Override
     public int getItemCount() {
-        if (mTaskData == null) return 0;
-        Log.d(TAG, "getItemCount: " + mTaskData.length);
-        return mTaskData.length;
+        if (mTaskEntries == null) return 0;
+        return mTaskEntries.size();
     }
 
-    public void setTaskData(String[] taskData) {
-        mTaskData = taskData;
-        Log.d(TAG, "Inside setTaskData method");
+    public void setTasks(List<TaskEntry> taskEntries) {
+        mTaskEntries = taskEntries;
         notifyDataSetChanged();
     }
 

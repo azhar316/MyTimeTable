@@ -34,4 +34,14 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     // ViewGroup2 dependency
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // Room dependency
+    implementation "androidx.room:room-runtime:2.2.5"
+    annotationProcessor "androidx.room:room-compiler:2.2.5"
+
+    // LiveData and ViewModel dependency
+    implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
 }

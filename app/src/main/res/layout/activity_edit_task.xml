@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity">
+    tools:context=".EditTaskActivity">
 
     <LinearLayout
         android:id="@+id/linear_layout_label_slot"
@@ -72,6 +72,12 @@
         android:layout_height="wrap_content"
         android:paddingTop="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/et_task_start_time"
+            android:text="@string/start_time_label" />
+
         <EditText
             android:id="@+id/et_task_start_time"
             android:layout_width="0dp"
@@ -85,9 +91,14 @@
             android:paddingLeft="10dp"
             android:paddingEnd="5dp"
             android:paddingRight="5dp"
-            android:inputType="time"
-            android:hint="@string/start_time"
-            android:autofillHints="@string/start_time" />
+            android:focusable="false"
+            android:inputType="none" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/et_task_end_time"
+            android:text="@string/end_time_label" />
 
         <EditText
             android:id="@+id/et_task_end_time"
@@ -102,9 +113,9 @@
             android:paddingLeft="5dp"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
-            android:inputType="time"
-            android:hint="@string/end_time"
-            android:autofillHints="@string/end_time" />
+            android:focusable="false"
+            android:inputType="none" />
+
     </LinearLayout>
 
     <LinearLayout

@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">My TimeTable</string>
 
+    <string-array name="Week_days">
+        <item>MONDAY</item>
+        <item>TUESDAY</item>
+        <item>WEDNESDAY</item>
+        <item>THURSDAY</item>
+        <item>FRIDAY</item>
+        <item>SATURDAY</item>
+        <item>SUNDAY</item>
+    </string-array>
+
     <string name="floating_action_add">Add Task</string>
 
     <string name="floating_action_save">Save Task</string>
@@ -9,8 +19,8 @@
     <string name="label_hint">Label</string>
     <string name="description_hint">Description</string>
 
-    <string name="start_time">start time</string>
-    <string name="end_time">end time</string>
+    <string name="start_time_label">From</string>
+    <string name="end_time_label">To</string>
 
     <string name="btn_save">save</string>
     <string name="btn_delete">delete</string>
