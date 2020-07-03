@@ -33,11 +33,15 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     class TaskViewHolder extends RecyclerView.ViewHolder
             implements RecyclerView.OnClickListener {
 
-        private TextView mTaskDataTextView;
+        public TextView mStartTimeTextView;
+        public TextView mLabelTextView;
+        public TextView mEndTimeTextView;
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
-            mTaskDataTextView = itemView.findViewById(R.id.tv_task_data);
+            mStartTimeTextView = itemView.findViewById(R.id.tv_start_time);
+            mLabelTextView = itemView.findViewById(R.id.tv_task_label);
+            mEndTimeTextView = itemView.findViewById(R.id.tv_end_time);
             itemView.setOnClickListener(this);
         }
 
@@ -61,8 +65,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         TaskEntry task = mTaskEntries.get(position);
+        int color = task.getColor();
+        String startTime = task.getStartTime().toString();
+        String endTime = task.getEndTime().toString();
         String taskLabel = task.getTaskLabel();
-        holder.mTaskDataTextView.setText(taskLabel);
+        holder.mStartTimeTextView.setText(startTime);
+        holder.mLabelTextView.setText(taskLabel);
+        holder.mEndTimeTextView.setText(endTime);
+        holder.itemView.setBackgroundColor(color);
     }
 
     @Override

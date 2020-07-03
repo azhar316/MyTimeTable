@@ -102,7 +102,7 @@ public class EditTaskActivity extends AppCompatActivity {
         mStartTimeEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TimePickerFragment timePicker = new TimePickerFragment(mEndTimeEditText);
+                TimePickerFragment timePicker = new TimePickerFragment(mStartTimeEditText);
                 timePicker.show(getSupportFragmentManager(), "From");
             }
         });
@@ -136,6 +136,10 @@ public class EditTaskActivity extends AppCompatActivity {
     private void onSaveButtonClicked() {
         Executor diskExecutor = AppExecutors.getInstance().diskIo();
         String label = mTaskLabelEditText.getText().toString();
+        if (label.trim().equals("") || label.isEmpty()) {
+            mTaskLabelEditText.setError("Label is required");
+            return;
+        }
         String description = mTaskDescriptionEditText.getText().toString();
         mStartTime = getTime(mStartTimeEditText);
         mEndTime = getTime(mEndTimeEditText);

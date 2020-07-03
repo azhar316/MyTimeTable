@@ -20,7 +20,7 @@ public class WeekDaysAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return new TaskFragment(mDb, position);
+        return TaskFragment.newInstance(position);
     }
 
     @Override
